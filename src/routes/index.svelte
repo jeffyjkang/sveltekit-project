@@ -1,5 +1,6 @@
 <script lang='ts'>
-  import { theme } from '../theme';
+  import {theme} from '../theme';
+
   const dark = theme.global.text.dark;
   const light = theme.global.text.light;
   const neutral = theme.global.text.neutral;
