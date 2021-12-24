@@ -1,6 +1,6 @@
 <script lang='ts'>
-  import { theme } from '../../theme';
-  import { page } from '$app/stores';
+  import {theme} from '../../theme';
+  import {page} from '$app/stores';
 </script>
 
 <div class='theme-container'>
