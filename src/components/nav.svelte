@@ -1,24 +1,29 @@
 <script lang='ts'>
-  import {theme} from '../theme';
+  import {color} from '../stores/theme-store';
   import ThemeSelect from './theme-select.svelte';
-
-  const dark = theme.global.text.dark;
-  const light = theme.global.text.light;
-  const neutral = theme.global.text.neutral;
 </script>
 
 <header>
   <nav>
-    <button
-      style='
-        --border: {dark};
-        --background: {neutral};
-        --color: {light};
-      '
-    >
-    <a href='/' style='text-decoration: none; color: inherit;'>HOME</a>
-    </button>
-    <ThemeSelect />
+    <div>
+      <button 
+        style=
+          '
+            border: 2px solid {$color.darkText};
+            background: {$color.neutralText};
+            color: {$color.lightText};
+          '
+      >
+        <a href='/' style='text-decoration: none; color: inherit;'>
+          HOME
+        </a>
+      </button>
+      <ThemeSelect />
+      <a href='/test'>test</a>
+    </div>
+    <svg style='background: {$color.secondary};'>
+      <circle cx='12' cy='12' r='8' fill={$color.primary} />
+    </svg>
   </nav>
 </header>
 
@@ -29,15 +34,24 @@
   }
   nav {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     flex-flow: row wrap;
+  }
+  div {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+  svg {
+    height: 24px;
+    width: 24px;
+    border-radius: 8px;
   }
   button {
     border-radius: 8px;
     padding: 4px;
     margin: 4px;
-    border: 2px solid var(--border);
-    background: var(--background);
-    color: var(--color);
     cursor: pointer;
   }
 </style>
