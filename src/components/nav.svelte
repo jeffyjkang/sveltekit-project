@@ -1,6 +1,7 @@
 <script lang='ts'>
-  import {color} from '../stores/theme-store';
+  import {colors} from '../stores/theme-store';
   import ThemeSelect from './theme-select.svelte';
+
 </script>
 
 <header>
@@ -9,9 +10,9 @@
       <button 
         style=
           '
-            border: 2px solid {$color.darkText};
-            background: {$color.neutralText};
-            color: {$color.lightText};
+            border: 2px solid {$colors.darkText};
+            background: {$colors.neutralText};
+            color: {$colors.lightText};
           '
       >
         <a href='/' style='text-decoration: none; color: inherit;'>
@@ -21,8 +22,8 @@
       <ThemeSelect />
       <a href='/test'>test</a>
     </div>
-    <svg style='background: {$color.secondary};'>
-      <circle cx='12' cy='12' r='8' fill={$color.primary} />
+    <svg style='background: {$colors.secondary.base};'>
+      <circle cx='12' cy='12' r='8' fill={$colors.primary.base} />
     </svg>
   </nav>
 </header>

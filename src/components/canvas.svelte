@@ -1,13 +1,15 @@
 <script lang='ts'>
   import VerticalBar from './vertical-bar.svelte';
   import {color} from '../stores/theme-store';
+  import {insertionSort} from '../utils/sort/selection-sort';
 
-  const testValues = [4, 16, 12, 35, 10];
+  const testValues = Array.from({length: 44}, () => Math.floor(Math.random() * (100 - 2) + 2));
+  const sortedValues = insertionSort(testValues);
 </script>
 
 <div class='canvas' style='background: {$color.secondary}'>
-  {#each testValues as element}
-    <VerticalBar  value={element}/>
+  {#each testValues as element, i}
+    <VerticalBar  value={element} index={i}/>
   {/each}
 </div>
 

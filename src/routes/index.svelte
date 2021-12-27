@@ -1,9 +1,9 @@
 <script lang='ts'>
-  import {theme} from '../theme';
+  import {Theme} from '../theme';
 
-  const dark = theme.global.text.dark;
-  const light = theme.global.text.light;
-  const neutral = theme.global.text.neutral;
+  const dark = Theme.global.text.dark;
+  const light = Theme.global.text.light;
+  const neutral = Theme.global.text.neutral;
 </script>
 
 <div class='app-container'>
