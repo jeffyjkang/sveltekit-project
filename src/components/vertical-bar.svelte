@@ -1,7 +1,7 @@
 <script lang='ts'>
 export let value: number;
 export let index: number;
-import {color} from '../stores/theme-store';
+import {colors} from '../stores/theme-store';
 </script>
 
 <div class='bar-container'>
@@ -9,20 +9,20 @@ import {color} from '../stores/theme-store';
     class='bar-graphic'
     style='
       --height: {value * 8}px;
-      background: {$color.primary}
+      background: {$colors.primary.base}
     '    
   >
-    <span style='color: {$color.secondary}'>{value}</span>
+    <span style='color: {$colors.secondary.base}'>{value}</span>
   </div>
   <div
     class='index'
-    style='color: {$color.primary};'
+    style='color: {$colors.primary.base};'
   >
     {index}
   </div>
   <div
     class='arrow'
-    style='color: {$color.primary};'
+    style='color: {$colors.primary.base};'
   >
     ^
   </div>

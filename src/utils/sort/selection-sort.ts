@@ -1,4 +1,4 @@
-export const insertionSort = (arr: number[]) => {
+export const selectionSort = (arr: number[]) => {
   for (let i = 0; i < arr.length - 1; i++) {
     let minIndex = i
     for (let j = i + 1; j < arr.length; j++) {
