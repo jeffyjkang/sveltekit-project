@@ -1,7 +1,6 @@
 <script lang='ts'>
   import {colors} from '../stores/theme-store';
-  import ThemeSelect from './theme-select.svelte';
-
+  import NavSelect from './nav-select.svelte';
 </script>
 
 <header>
@@ -19,8 +18,8 @@
           HOME
         </a>
       </button>
-      <ThemeSelect />
-      <a href='/test'>test</a>
+      <NavSelect title={'theme'} routeList={['dark', 'light', 'neutral']} />
+      <NavSelect title={'sort'} routeList={['selection']} />
     </div>
     <svg style='background: {$colors.secondary.base};'>
       <circle cx='12' cy='12' r='8' fill={$colors.primary.base} />
