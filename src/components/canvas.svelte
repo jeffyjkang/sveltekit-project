@@ -1,13 +1,15 @@
 <script lang='ts'>
   import VerticalBar from './vertical-bar.svelte';
-  import {color} from '../stores/theme-store';
+  import {colors} from '../stores/theme-store';
+  import {selectionSort} from '../utils/sort/selection-sort';
 
-  const testValues = [4, 16, 12, 35, 10];
+  const testValues = Array.from({length: 44}, () => Math.floor(Math.random() * (100 - 2) + 2));
+  const sortedValues = selectionSort(testValues);
 </script>
 
-<div class='canvas' style='background: {$color.secondary}'>
-  {#each testValues as element}
-    <VerticalBar  value={element}/>
+<div class='canvas' style='background: {$colors.secondary.base}'>
+  {#each testValues as element, i}
+    <VerticalBar  value={element} index={i}/>
   {/each}
 </div>
 

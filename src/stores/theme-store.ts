@@ -1,25 +1,29 @@
-import {writable} from 'svelte/store';
+import {writable, derived} from 'svelte/store';
 import {browser} from '$app/env';
-import {theme} from '../theme';
+import {Theme} from '../theme';
 
-const storedColors = browser ? JSON.parse(localStorage.getItem('colors')) : null;
+const persistedTheme = browser ? localStorage.getItem('theme') : null;
 
-export const color = writable(
+export const storedTheme = writable(persistedTheme ? persistedTheme : 'neutral')
+
+export const colors = derived(
+  storedTheme,
+  $storedTheme => (
   {
-    error: !storedColors ? theme.global.error.base : storedColors.error,
-    info: !storedColors ? theme.global.info.base : storedColors.info,
-    warning: !storedColors ? theme.global.warning.base : storedColors.warning,
-    darkText: theme.global.text.dark,
-    lightText: theme.global.text.light,
-    neutralText: theme.global.text.neutral,
-    primary: !storedColors ? theme.neutral.primary.base : storedColors.primary,
-    secondary: !storedColors ? theme.neutral.secondary.base : storedColors.secondary
-  }  
+    error: Theme.global.error,
+    info: Theme.global.info,
+    warning: Theme.global.warning,
+    darkText: Theme.global.text.dark,
+    lightText: Theme.global.text.light,
+    neutralText: Theme.global.text.neutral,
+    primary: Theme[$storedTheme].primary,
+    secondary: Theme[$storedTheme].secondary
+  })
 )
 
 if(browser) {
-  color.subscribe(value => {
-    localStorage.setItem('color', JSON.stringify(value))
+  storedTheme.subscribe(value => {
+    localStorage.setItem('theme', value)
   })
 }
 

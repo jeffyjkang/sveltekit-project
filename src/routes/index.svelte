@@ -1,17 +1,13 @@
 <script lang='ts'>
-  import {theme} from '../theme';
-
-  const dark = theme.global.text.dark;
-  const light = theme.global.text.light;
-  const neutral = theme.global.text.neutral;
+  import {colors} from '../stores/theme-store';
 </script>
 
 <div class='app-container'>
   <h1 
     style='
-      --color:{dark};
-      --background:{light};
-      --border:{neutral};
+      --color:{$colors.darkText};
+      --background:{$colors.lightText};
+      --border:{$colors.neutralText};
     '
   >
     Home Page

@@ -1,18 +1,15 @@
 <script lang='ts'>
-  import {theme} from '../theme';
+  import {colors} from '../stores/theme-store';
 
-  const dark = theme.global.text.dark;
-  const light = theme.global.text.light;
-  const neutral = theme.global.text.neutral;
   let persistOpen = false;
 </script>
 
 <div class='dropdown'>
   <button
     style='
-      --border: {dark};
-      --background: {neutral};
-      --color: {light};
+      --border: {$colors.darkText};
+      --background: {$colors.neutralText};
+      --color: {$colors.lightText};
     '
   >
     SELECT THEME |
@@ -21,13 +18,13 @@
   <div
       class='{!persistOpen ? 'dropdown-content' : 'dropdown-content persist'}'
     style='
-      --border: {dark};
-      --background: {neutral};
-      --color: {light};
+      --border: {$colors.darkText};
+      --background: {$colors.neutralText};
+      --color: {$colors.lightText};
     '
   >
-    {#each ['base', 'neon', 'pastel'] as type}
-      <a href='/themes/{type}' style='text-decoration: none; color: inherit; --background: {dark}'>{type.toUpperCase()} COLORS</a>
+    {#each ['dark', 'light', 'neutral'] as theme}
+      <a href='/themes/{theme}' style='text-decoration: none; color: inherit; --background: {$colors.darkText}'>{theme.toUpperCase()} THEME</a>
     {/each}
   </div>
 </div>

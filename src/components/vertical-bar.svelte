@@ -1,25 +1,53 @@
 <script lang='ts'>
 export let value: number;
-import {color} from '../stores/theme-store';
+export let index: number;
+import {colors} from '../stores/theme-store';
 </script>
 
 <div class='bar-container'>
   <div
     class='bar-graphic'
     style='
-      --height: {value * 10}px;
-      background: {$color.primary}
+      --height: {value * 8}px;
+      background: {$colors.primary.base}
     '    
   >
+    <span style='color: {$colors.secondary.base}'>{value}</span>
+  </div>
+  <div
+    class='index'
+    style='color: {$colors.primary.base};'
+  >
+    {index}
+  </div>
+  <div
+    class='arrow'
+    style='color: {$colors.primary.base};'
+  >
+    ^
   </div>
 </div>
 
 <style>
 .bar-container {
-  margin: 0 4px;
+  margin: 0 2px;
 }
 .bar-graphic {
   height: var(--height);
-  width: 8px;
+  width: 16px;
+  font-size: 12px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.index {
+  font-size: 8px;
+  text-align: center;
+  padding-top: 4px;
+}
+.arrow {
+  font-size: 8px;
+  text-align: center;
+  padding-top: 4px;
 }
 </style>
