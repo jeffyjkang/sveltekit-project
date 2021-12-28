@@ -1,6 +1,8 @@
 <script lang='ts'>
   import {colors} from '../stores/theme-store';
 
+  export let title: string;
+  export let routeList: string[];
   let persistOpen = false;
 </script>
 
@@ -12,20 +14,25 @@
       --color: {$colors.lightText};
     '
   >
-    SELECT THEME |
-    <span class='arrow' on:click={()=>(persistOpen = !persistOpen)}>></span>
+    SELECT {title.toUpperCase()} |
+    <span class='arrow' on:click={() => (persistOpen = !persistOpen)}>^</span>
   </button>
   <div
-      class='{!persistOpen ? 'dropdown-content' : 'dropdown-content persist'}'
+    class='{!persistOpen ? 'dropdown-content' : 'dropdown-content persist'}'
     style='
       --border: {$colors.darkText};
       --background: {$colors.neutralText};
       --color: {$colors.lightText};
     '
   >
-    {#each ['dark', 'light', 'neutral'] as theme}
-      <a href='/themes/{theme}' style='text-decoration: none; color: inherit; --background: {$colors.darkText}'>{theme.toUpperCase()} THEME</a>
-    {/each}
+  {#each routeList as route}
+    <a
+      href='/{title}/{route}'
+      style='--background: {$colors.darkText}'
+    >
+      {route.toUpperCase()} {title.toUpperCase()}
+    </a>
+  {/each}
   </div>
 </div>
 
@@ -37,12 +44,16 @@
     border: 2px solid var(--border);
     background: var(--background);
     color: var(--color);
-    cursor: points;
+    cursor: pointer;
   }
   .arrow {
     display: inline-block;
-    transform: rotate(90deg);
+    transform: rotate(180deg);
     cursor: pointer;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
   }
   a:hover {
     background: var(--background);

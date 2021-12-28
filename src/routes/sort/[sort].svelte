@@ -4,6 +4,3 @@
 
 <Canvas />
 
-<style>
-
-</style>

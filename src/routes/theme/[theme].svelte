@@ -8,7 +8,16 @@
   }
 </script>
 
-<button on:click|preventDefault={()=>setTheme($page.params.theme)}>
+<button
+  on:click|preventDefault={()=>setTheme($page.params.theme)}
+  style='
+    background: {Theme.global.text.light};
+    border-color: {Theme.global.text.neutral};
+    border-radius: 4px;
+    margin: 0 8px;
+    cursor: pointer;
+  '
+>
   {#each ['base', 'neon', 'pastel'] as type}    
     <h1
       style='
