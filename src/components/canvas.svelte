@@ -5,7 +5,7 @@
 </script>
 
 <div class='canvas' style='background: {$colors.secondary.base};'>
-  <h1 style='color: {$colors.neutralText};'>{$page.params.sort.toUpperCase()} SORT</h1>
+  <h2 style='color: {$colors.neutralText};'>{$page.params.sort.toUpperCase()} SORT</h2>
   <div class='container'>
     <SelectionSort />
   </div>
@@ -20,7 +20,7 @@
   flex-direction: column;
   justify-content: space-between 
 }
-h1 {
+h2 {
   margin: 16px;
 }
 .container {

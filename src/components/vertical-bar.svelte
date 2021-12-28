@@ -3,6 +3,10 @@
   
   export let value: number;
   export let index: number;
+  export let pointer1: number;
+  export let pointer2: number;
+  export let swapIndex: number;
+
 </script>
 
 <div class='bar-container'>
@@ -10,7 +14,7 @@
     class='bar-graphic'
     style='
       --height: {value * 8}px;
-      background: {$colors.primary.base}
+      background: {index < pointer1 ? $colors.primary.pastel : $colors.primary.base}
     '
   >
     <span style='color: {$colors.secondary.base}'>{value}</span>
@@ -23,7 +27,15 @@
   </div>
   <div
     class='arrow'
-    style='color: {$colors.primary.base};'
+    style='
+      color: {
+        (pointer1 === index || pointer2 === index) ? 
+        $colors.primary.base : 
+        (swapIndex && swapIndex === index) ? 
+        $colors.lightText : 
+        $colors.secondary.base
+      };
+    '
   >
     ^
   </div>
