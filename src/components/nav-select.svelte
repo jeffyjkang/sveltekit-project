@@ -15,7 +15,7 @@
     '
   >
     SELECT {title.toUpperCase()} |
-    <span class='arrow' on:click={() => (persistOpen = !persistOpen)}>></span>
+    <span class='arrow' on:click={() => (persistOpen = !persistOpen)}>^</span>
   </button>
   <div
     class='{!persistOpen ? 'dropdown-content' : 'dropdown-content persist'}'
@@ -48,7 +48,7 @@
   }
   .arrow {
     display: inline-block;
-    transform: rotate(90deg);
+    transform: rotate(180deg);
     cursor: pointer;
   }
   a {

@@ -15,6 +15,7 @@
     border-color: {Theme.global.text.neutral};
     border-radius: 4px;
     margin: 0 8px;
+    cursor: pointer;
   '
 >
   {#each ['base', 'neon', 'pastel'] as type}    

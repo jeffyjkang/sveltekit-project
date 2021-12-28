@@ -1,7 +1,8 @@
 <script lang='ts'>
-export let value: number;
-export let index: number;
-import {colors} from '../stores/theme-store';
+  import {colors} from '../stores/theme-store';
+  
+  export let value: number;
+  export let index: number;
 </script>
 
 <div class='bar-container'>
@@ -10,7 +11,7 @@ import {colors} from '../stores/theme-store';
     style='
       --height: {value * 8}px;
       background: {$colors.primary.base}
-    '    
+    '
   >
     <span style='color: {$colors.secondary.base}'>{value}</span>
   </div>
@@ -51,3 +52,4 @@ import {colors} from '../stores/theme-store';
   padding-top: 4px;
 }
 </style>
+
