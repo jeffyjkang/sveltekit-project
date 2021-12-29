@@ -31,7 +31,7 @@
       color: {
         (pointer1 === index || pointer2 === index) ? 
         $colors.primary.base : 
-        (swapIndex && swapIndex === index) ? 
+        (swapIndex === index) ? 
         $colors.lightText : 
         $colors.secondary.base
       };
