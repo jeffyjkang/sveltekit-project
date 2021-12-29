@@ -3,6 +3,7 @@
   import {colors} from '../stores/theme-store';
   import SelectionSort from './sorts/selection-sort.svelte';
   import InsertionSort from './sorts/insertion-sort.svelte';
+  import BubbleSort from './sorts/bubble-sort.svelte';
 </script>
 
 <div class='canvas' style='background: {$colors.secondary.base};'>
@@ -13,6 +14,9 @@
     {/if}
     {#if $page.params.sort === 'insertion'}
       <InsertionSort />
+    {/if}
+    {#if $page.params.sort === 'bubble'}
+      <BubbleSort />
     {/if}
   </div>
 </div>
