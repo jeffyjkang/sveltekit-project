@@ -19,7 +19,7 @@
         </a>
       </button>
       <NavSelect title={'theme'} routeList={['dark', 'light', 'neutral']} />
-      <NavSelect title={'sort'} routeList={['selection']} />
+      <NavSelect title={'sort'} routeList={['selection', 'insertion']} />
     </div>
     <svg style='background: {$colors.secondary.base};'>
       <circle cx='12' cy='12' r='8' fill={$colors.primary.base} />
