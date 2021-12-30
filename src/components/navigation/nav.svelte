@@ -1,5 +1,5 @@
 <script lang='ts'>
-  import {colors} from '../stores/theme-store';
+  import {colors} from '../../stores/theme-store';
   import NavSelect from './nav-select.svelte';
 </script>
 

@@ -1,9 +1,9 @@
 <script lang='ts'>
   import {page} from '$app/stores';
-  import {colors} from '../stores/theme-store';
-  import SelectionSort from './sorts/selection-sort.svelte';
-  import InsertionSort from './sorts/insertion-sort.svelte';
-  import BubbleSort from './sorts/bubble-sort.svelte';
+  import {colors} from '../../stores/theme-store';
+  import SelectionSort from './selection-sort.svelte';
+  import InsertionSort from './insertion-sort.svelte';
+  import BubbleSort from './bubble-sort.svelte';
 </script>
 
 <div class='canvas' style='background: {$colors.secondary.base};'>

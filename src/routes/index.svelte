@@ -2,7 +2,7 @@
   import {colors} from '../stores/theme-store';
 </script>
 
-<div class='app-container'>
+<div class='home-container'>
   <h1 
     style='
       --color:{$colors.darkText};
@@ -15,13 +15,13 @@
 </div>
 
 <style>
-  .app-container {
+  .home-container {
     display: flex;
-    flex-flow: row wrap;
   }
   h1 {
     margin: 8px;
     padding: 8px;
+    border-radius: 4px;
     border: 2px solid var(--border);
     color: var(--color);
     background: var(--background);
