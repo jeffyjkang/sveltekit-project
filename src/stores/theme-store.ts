@@ -2,6 +2,8 @@ import {writable, derived} from 'svelte/store';
 import {browser} from '$app/env';
 import {Theme} from '../theme';
 
+export type StoredThemeType = 'dark' | 'light' | 'neutral'
+
 const persistedTheme = browser ? localStorage.getItem('theme') : null;
 
 export const storedTheme = writable(persistedTheme ? persistedTheme : 'neutral')

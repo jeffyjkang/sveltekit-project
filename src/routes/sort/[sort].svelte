@@ -1,5 +1,5 @@
 <script lang='ts'>
-  import Canvas from '../../components/canvas.svelte'; 
+  import Canvas from '../../components/sorts/canvas.svelte'; 
 </script>
 
 <Canvas />

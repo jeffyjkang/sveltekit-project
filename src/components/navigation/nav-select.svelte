@@ -1,5 +1,5 @@
 <script lang='ts'>
-  import {colors} from '../stores/theme-store';
+  import {colors} from '../../stores/theme-store';
 
   export let title: string;
   export let routeList: string[];

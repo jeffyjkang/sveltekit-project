@@ -1,10 +1,11 @@
 <script lang='ts'>
   import {Theme} from '../../theme';
+  import type {StoredThemeType} from '../../stores/theme-store';
   import {storedTheme} from '../../stores/theme-store';
   import {page} from '$app/stores';
 
-  const setTheme = (selectedTheme: string) => {
-    storedTheme.update(currentTheme => currentTheme = selectedTheme);
+  const setTheme = (selectedTheme: StoredThemeType) => {
+    storedTheme.update((currentTheme) => currentTheme = selectedTheme);
   }
 </script>
 
@@ -13,9 +14,6 @@
   style='
     background: {Theme.global.text.light};
     border-color: {Theme.global.text.neutral};
-    border-radius: 4px;
-    margin: 0 8px;
-    cursor: pointer;
   '
 >
   {#each ['base', 'neon', 'pastel'] as type}    
@@ -31,10 +29,16 @@
 </button>
 
 <style>
+  button {
+    margin: 8px;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
   h1 {
     margin: 8px;
     padding: 8px;
-    border-radius: 8px;
+    border-radius: 4px;
     color: var(--color);
     background: var(--background);
   }

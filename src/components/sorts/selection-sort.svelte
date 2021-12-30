@@ -1,7 +1,7 @@
 <script lang='ts'>
   import {onMount} from 'svelte'
   import {flip} from 'svelte/animate';
-  import VerticalBar from '../vertical-bar.svelte';
+  import VerticalBar from './vertical-bar.svelte';
   import {generateArray} from '../../utils/generate/generateArray';
   import {selectionSortGenerator} from '../../utils/sort/selectionSort';
 

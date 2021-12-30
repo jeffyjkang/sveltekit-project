@@ -3,7 +3,7 @@
   import {flip} from 'svelte/animate';
   import VerticalBar from './vertical-bar.svelte';
   import {generateArray} from '../../utils/generate/generateArray';
-  import {insertionSortGenerator} from '../../utils/sort/insertionSort';
+  import {bubbleSortGenerator} from '../../utils/sort/bubbleSort';
 
   let testValues = [... new Set(generateArray())];
   let p1: number;
@@ -11,14 +11,14 @@
   let pS: number;
 
   onMount(() => {
-    const generator = insertionSortGenerator(testValues);
+    const generator = bubbleSortGenerator(testValues);
     const interval = setInterval(() => {
       const {value, done} = generator.next();
       testValues = value.arr;
       p1 = Number(value._i);
       p2 = Number(value._j);
       pS = Number(value._k);
-      
+
       if (done) {
         clearInterval(interval);
       }
