@@ -11,17 +11,7 @@ export const bubbleSort = (arr: number[]): number[] => {
   return arr;
 }
 
-export function* bubbleSortGenerator(arr: number[]):
-  Generator<
-    {
-      arr: number[];
-      _i: number;
-      _j: number;
-      _k: number | undefined;
-    },
-    number[],
-    boolean
-  > {
+export function* bubbleSortGenerator(arr: number[]): Generator<unknown, number[], unknown> {
   let _i: number, _j: number, _k: number | undefined;
 
   for (let i = 0; i < arr.length; i++) {
