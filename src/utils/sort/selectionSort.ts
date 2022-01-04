@@ -1,4 +1,4 @@
-export const selectionSort = (arr: number[]) => {
+export const selectionSort = (arr: number[]): number[] => {
   for (let i = 0; i < arr.length - 1; i++) {
     let minIndex = i
     for (let j = i + 1; j < arr.length; j++) {
@@ -15,7 +15,7 @@ export const selectionSort = (arr: number[]) => {
   return arr;
 }
 
-export function* selectionSortGenerator(arr: number[]) {
+export function* selectionSortGenerator(arr: number[]): Generator<unknown, number[], unknown> {
   let _i: number, _j: number; let _k: number | undefined;
   for (let i = 0; i < arr.length -1; i++) {
     _i = i;

@@ -1,4 +1,4 @@
-export const insertionSort = (arr: number[]) => {
+export const insertionSort = (arr: number[]): number[] => {
   for (let i = 1; i < arr.length; i++) {
     const tempElement = arr[i];
     let j = i - 1;
@@ -11,7 +11,7 @@ export const insertionSort = (arr: number[]) => {
   return arr;
 }
 
-export function* insertionSortGenerator(arr: number[]) {
+export function* insertionSortGenerator(arr: number[]): Generator<unknown, number[], unknown> {
   let _i: number, _j: number | undefined, _k: number | undefined;
 
   for (let i = 1; i < arr.length; i++) {
