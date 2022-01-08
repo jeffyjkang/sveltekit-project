@@ -1,11 +1,13 @@
 import {Node} from './node';
 
-export class SinglyLinkedList {
+export class DoublyLinkedList {
   head: Node;
+  tail: Node;
   size: number;
-  
+
   constructor(node: Node = null) {
     this.head = node;
+    this.tail = node;
     this.size = node ? 1 : 0;
   }
 
@@ -18,49 +20,39 @@ export class SinglyLinkedList {
   }
 
   getLast(): Node | null {
-    if (this.head) {
-      let current = this.head;
-      while (current.next) {
-        current = current.next;
-      }
-      return current;
-    }
-    else {
-      return null;
-    }
+    return this.tail ?? null;
   }
-  
-  prepend(value: unknown): void {
+
+  addToHead(value: unknown): void {
     const node = new Node(value);
     if (this.head) {
       node.next = this.head;
+      this.head.prev = node;
       this.head = node;
-      this.size += 1;
     }
     else {
       this.head = node;
-      this.size += 1;
+      this.tail = node;
     }
   }
 
-  append(value: unknown): void {
+  addToTail(value: unknown): void {
     const node = new Node(value);
-    if (this.head) {
-      let current = this.head;
-      while (current.next) {
-        current = current.next;
-      }
-      current.next = node;
-      this.size += 1;
+    if (this.tail) {
+      node.prev = this.tail;
+      this.tail.next = node;
+      this.tail = node;
     }
     else {
       this.head = node;
-      this.size += 1;
+      this.tail = node;
     }
   }
 
   clearList(): void {
     this.head = null;
+    this.tail = null;
+    this.size = 0;
   }
 }
 
