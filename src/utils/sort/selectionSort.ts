@@ -15,7 +15,8 @@ export const selectionSort = (arr: number[]): number[] => {
   return arr;
 }
 
-export function* selectionSortGenerator(arr: number[]): Generator<unknown, number[], unknown> {
+export function* selectionSortGenerator(arr: number[]):
+  Generator<{arr: number[]; _i: number; _j: number; _k: number | undefined;} |number[]> {
   let _i: number, _j: number; let _k: number | undefined;
   for (let i = 0; i < arr.length -1; i++) {
     _i = i;

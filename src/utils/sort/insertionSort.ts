@@ -11,7 +11,8 @@ export const insertionSort = (arr: number[]): number[] => {
   return arr;
 }
 
-export function* insertionSortGenerator(arr: number[]): Generator<unknown, number[], unknown> {
+export function* insertionSortGenerator(arr: number[]):
+  Generator<{arr: number[]; _i: number; _j: number; _k: number | undefined;} |number[]> {
   let _i: number, _j: number | undefined, _k: number | undefined;
 
   for (let i = 1; i < arr.length; i++) {
