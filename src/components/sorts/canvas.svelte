@@ -7,13 +7,18 @@
   import BubbleSort from './bubble-sort.svelte';
 
   const title = `${$page.params.sort.toUpperCase()} SORT`;
+  
+  let verticalBarActionValue: string;
+  const setActionValue = (e) => {
+    verticalBarActionValue = e.detail.action;
+  }
 </script>
 
 <div class='canvas' style='background: {$colors.secondary.base};'>
-  <Toolbar title={title} />
+  <Toolbar title={title} on:verticalBarAction={setActionValue}/>
   <div class='container'>
     {#if $page.params.sort === 'selection'}
-      <SelectionSort />
+      <SelectionSort actionValue={verticalBarActionValue} />
     {/if}
     {#if $page.params.sort === 'insertion'}
       <InsertionSort />
