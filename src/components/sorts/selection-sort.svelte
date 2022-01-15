@@ -10,19 +10,20 @@
   let pause = true;
   $: pause
 
-  let testValues = [... new Set(generateArray())];
+  let randomArraySet = [... new Set(generateArray())];
   let p1: number;
   let p2: number;
   let pS: number | undefined;
-  let generator = selectionSortGenerator(testValues);
+  
+  let generator = selectionSortGenerator(randomArraySet);
 
-  const generatorIntervalCB= () => {
+  const generatorIntervalCB = () => {
     if (actionValue === 'START') {
       pause = false;
       if (!pause) {
         const {value, done} = generator.next();
         if (!done) {
-          testValues = value.arr
+          randomArraySet = value.arr
           p1 = Number(value._i);
           p2 = Number(value._j);
           pS = Number(value._k);
@@ -37,11 +38,11 @@
     }
     if (actionValue === 'RESET') {
       pause = true;
-      testValues = [... new Set(generateArray())];
+      randomArraySet = [... new Set(generateArray())];
       p1 = undefined;
       p2 = undefined;
       pS = undefined;
-      generator = selectionSortGenerator(testValues);
+      generator = selectionSortGenerator(randomArraySet);
       clearInterval(interval);
       interval = setInterval(generatorIntervalCB, 100)
       actionValue = 'STOP'
@@ -56,7 +57,7 @@
 
 </script>
 
-{#each testValues as element, i (element)}
+{#each randomArraySet as element, i (element)}
   <div animate:flip="{{duration: 250}}">
     <VerticalBar value={element} index={i} pointer1={p1} pointer2={p2} swapIndex={pS}/>
   </div>

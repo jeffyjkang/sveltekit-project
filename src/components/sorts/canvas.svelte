@@ -21,10 +21,10 @@
       <SelectionSort actionValue={verticalBarActionValue} />
     {/if}
     {#if $page.params.sort === 'insertion'}
-      <InsertionSort />
+      <InsertionSort actionValue={verticalBarActionValue}/>
     {/if}
     {#if $page.params.sort === 'bubble'}
-      <BubbleSort />
+      <BubbleSort actionValue={verticalBarActionValue}/>
     {/if}
   </div>
 </div>
